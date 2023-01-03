@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/magic-memory/static/css/main.d24e922a.css",
+    "main.css": "/magic-memory/static/css/main.afe822a6.css",
     "main.js": "/magic-memory/static/js/main.cf56760c.js",
     "index.html": "/magic-memory/index.html",
-    "main.d24e922a.css.map": "/magic-memory/static/css/main.d24e922a.css.map",
+    "main.afe822a6.css.map": "/magic-memory/static/css/main.afe822a6.css.map",
     "main.cf56760c.js.map": "/magic-memory/static/js/main.cf56760c.js.map"
   },
   "entrypoints": [
-    "static/css/main.d24e922a.css",
+    "static/css/main.afe822a6.css",
     "static/js/main.cf56760c.js"
   ]
 }
