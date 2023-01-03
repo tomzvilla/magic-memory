@@ -1,14 +1,15 @@
 import './App.css';
 import {useEffect, useState} from "react"
 import SingleCard from './components/SingleCard';
+import Timer from './components/Timer';
 
 const cardImages = [
-  {"src":"/img/helmet-1.png", matched: false},
-  {"src":"/img/potion-1.png", matched: false},
-  {"src":"/img/ring-1.png", matched: false},
-  {"src":"/img/scroll-1.png", matched: false},
-  {"src":"/img/shield-1.png", matched: false},
-  {"src":"/img/sword-1.png", matched: false},
+  {"src":"./img/helmet-1.png", matched: false},
+  {"src":"./img/potion-1.png", matched: false},
+  {"src":"./img/ring-1.png", matched: false},
+  {"src":"./img/scroll-1.png", matched: false},
+  {"src":"./img/shield-1.png", matched: false},
+  {"src":"./img/sword-1.png", matched: false},
 ]
 
 function App() {
@@ -21,6 +22,10 @@ function App() {
 
   const [disabled, setDisabled] = useState(false)
 
+  const [seconds, setSeconds] = useState(0)
+
+  const [completed, setCompleted] = useState(false)
+
   // shuffle cards
 
   const shuffleCards = () =>{
@@ -32,6 +37,7 @@ function App() {
     setChoiceTwo(null)
     setCards(shuffledCards)
     setTurns(0)
+    setSeconds(0)
   }
 
   // handle a choice
@@ -63,7 +69,6 @@ function App() {
     }
   },[choiceOne, choiceTwo])
 
-  console.log(cards)
 
   //reset choices & increase turn
 
@@ -79,6 +84,11 @@ function App() {
   useEffect(()=>{
     shuffleCards()
   },[])
+
+  useEffect(()=>{
+    const done = cards.find(card => card.matched === false)
+    done === undefined ? setCompleted(true) : setCompleted(false)
+  },[cards])
 
   return (
     <div className="App">
@@ -99,6 +109,7 @@ function App() {
       <p>
         Turns: {turns}
       </p>
+      <Timer seconds = {seconds} setSeconds={setSeconds} completed ={completed}/>
     </div>
   );
 }
